@@ -1,0 +1,73 @@
+{
+  "name": "egg-server-seed",
+  "version": "1.0.0",
+  "description": "egg server seed project",
+  "private": true,
+  "egg": {
+    "framework": "qhkj-framework"
+  },
+  "dependencies": {
+    "await-stream-ready": "^1.0.1",
+    "bcryptjs": "^2.4.3",
+    "cheerio": "^1.0.0-rc.2",
+    "crc": "^3.8.0",
+    "egg": "^2.0.0",
+    "egg-scripts": "^2.1.0",
+    "image-downloader": "^3.3.0",
+    "imap": "^0.8.19",
+    "mocha": "^4.0.1",
+    "node-uuid": "^1.4.8",
+    "nodemailer": "^4.6.8",
+    "qhkj-framework": "^1.0.1",
+    "raw-body": "^2.3.3",
+    "stream-to-array": "^2.3.0",
+    "stream-to-buffer": "^0.1.0",
+    "stream-wormhole": "^1.0.3",
+    "xml2json": "^0.11.2"
+  },
+  "devDependencies": {
+    "apidoc": "^0.17.7",
+    "apidoc-plugin-schema": "^0.1.8",
+    "autod": "^3.1.0",
+    "autod-egg": "^1.1.0",
+    "egg-bin": "^4.3.5",
+    "egg-ci": "^1.8.0",
+    "egg-mock": "^3.13.0",
+    "eslint": "^4.11.0",
+    "eslint-config-egg": "^5.1.0",
+    "qhkj-noodle": "^0.0.3"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon",
+    "stop": "egg-scripts stop",
+    "dev": "egg-bin dev --port 8081",
+    "debug": "egg-bin debug --port 8081",
+    "test": "npm run test-local",
+    "test-local": "egg-bin test --full-trace  --port 8081",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod",
+    "doc": "rm -rf ./app/public/apidoc/* && apidoc -i ./app -o ./app/public/apidoc/"
+  },
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "qianhaikeji",
+  "license": "MIT",
+  "apidoc": {
+    "name": "seed api文档",
+    "version": "1.0.0",
+    "description": "API文档",
+    "title": "API文档",
+    "order": [
+    ]
+  }
+}
