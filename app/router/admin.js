@@ -12,4 +12,6 @@ module.exports = app => {
   router.delete('/api/admins/:id', controller.admin.deleteAdmin)
   router.put('/api/admins/:id/resetPassword', controller.admin.changeAdminPassword)
 
+  router.post('/api/admin/token', controller.auth.adminLogin)
+  router.get('/api/admin/profile', controller.auth.getAdminProfile)
 }

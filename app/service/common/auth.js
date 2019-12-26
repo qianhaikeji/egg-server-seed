@@ -18,50 +18,6 @@ class AuthService extends Service {
     this.SALT_ROUNDS = this.config.bcrypt.saltRounds
     this.JWT_SECRET = this.config.jwt.secret
   }
-
-  async getChannelToken(data) {
-    let channel = await this.models.Channel.findOne({where: { username: data.username }})
-    if(!channel) {
-      this.throwException(401, '用户名不存在')
-    }
-
-    await this.verifyEncryptedPassword(data.password, channel.password)
- 
-    let resp = {
-      profile: channel,
-      token: jwt.sign({
-        data: {
-          'type': 'channel',
-          'id': channel.id
-        },
-        exp: Math.floor(Date.now() / 1000) + EXPIRATION,
-      }, this.JWT_SECRET),
-    }
-    return resp
-  }
-
-  async getChannelProfile() {
-    const id = await this.getProfileId('channel')
-    const profile = await this.models.Channel.findByPk(id)
-    if (!profile) {
-      this.throwException(401, '无效的用户')
-    }
-    
-    return profile
-  }
-
-  async getChannelId () {
-    return this.getProfileId('channel')
-  }
-
-  async getUserWalletAddr () {
-    const addr = this.ctx.userWalletAddr
-    if (utils.isEmpty(addr)) {
-      this.throwException(401, '无效的用户')
-    }
-
-    return addr
-  }
   
   async getAdminToken(data) {
     let admin = await this.models.Admin.findOne({where: { username: data.username }})

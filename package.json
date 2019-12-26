@@ -35,7 +35,7 @@
     "egg-mock": "^3.13.0",
     "eslint": "^4.11.0",
     "eslint-config-egg": "^5.1.0",
-    "qhkj-noodle": "^0.0.3"
+    "qhkj-noodle": "^0.0.4"
   },
   "engines": {
     "node": ">=8.9.0"
@@ -67,7 +67,6 @@
     "version": "1.0.0",
     "description": "API文档",
     "title": "API文档",
-    "order": [
-    ]
+    "order": []
   }
 }
